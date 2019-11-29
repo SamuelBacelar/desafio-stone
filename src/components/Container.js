@@ -1,9 +1,16 @@
 import React from 'react';
+import tempDB from '../temporaryDB';
+import NoEmployee from './NoEmployee';
+import EmployeeTable from './EmployeeTable';
 
-function Container() {
+const hasEmployee = true;
+
+
+function Container(props) {
     return(
-         <div className="container">
-            <h1>Nenhum funcionário cadastrado</h1>
+         <div className="Container">
+            {hasEmployee === true ? <EmployeeTable/> : <NoEmployee/>}
+            {props.children}
         </div>
     );
 };

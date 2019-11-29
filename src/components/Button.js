@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
-function Button() {
+function Button(props) {
     return(
-         <div className="pres-title">
-           <button>Novo Funcionário</button>
-        </div>
+           <Link to="/register"><button className="Button">{props.name}</button></Link>
     );
 };
 

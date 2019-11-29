@@ -2,11 +2,10 @@ import React from 'react';
 import PresTitle from './PresTitle';
 import Button from './Button';
 
-function Presentation() {
+function Presentation(props) {
     return(
-         <div className="presentation">
-           <PresTitle/>
-           <Button/>
+         <div className="Presentation">
+             {props.children}
         </div>
     );
 };

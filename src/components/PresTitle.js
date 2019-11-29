@@ -1,10 +1,10 @@
 import React from 'react';
 
-function PresTitle() {
+function PresTitle(props) {
     return(
          <div className="pres-title">
-            <h1>Quadro de Funcionários</h1>
-            <p>Aqui vai um texto</p>
+            <h1>{props.title}</h1>
+            <p>{props.description}</p>
         </div>
     );
 };

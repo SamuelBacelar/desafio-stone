@@ -4,8 +4,7 @@ import Header from './Header'
 import Presentation from './Presentation';
 import Container from './Container';
 import Footer from './Footer';
-import Button from './Button';
-import TempDB from '../temporaryDB';
+import ContainerRegister from './ContainerRegister';
 import PresTitle from './PresTitle';
 
 
@@ -15,12 +14,11 @@ function App() {
       <Header/>
       <Presentation>
         <PresTitle
-          title="Quadro de Funcionários"
-          description="Aqui vai um texto sobre a seção"
+            title="Registro de Funcionário"
+            description="Aqui vai um texto sobre a seção"
         />
-        <Button name="Novo funcionário"/>
       </Presentation>
-      <Container/>
+      <ContainerRegister/>
       <Footer/>
     </div>
    
