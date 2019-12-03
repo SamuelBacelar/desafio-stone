@@ -1,16 +1,90 @@
 import React from 'react';
-import SearchBar from './SearchBar';
-import Form from './Form';
+import tempDB from '../temporaryDB';
 
+const Filter = ({
+    filterByJob,
+    setFilterByJob,
+    filterByCity,
+    setFilterByCity,
+    filterByAllocation,
+    setFilterByAllocation
+  }) => {
+    const clearFilter = e => {
+      setFilterByCity("");
+    };
+    const handleFilterByJob = e => {
+        setFilterByJob(e.target.value);
+    }
+    const handleFilterByCity = e => {
+      setFilterByCity(e.target.value);
+    };
+    const handleFilterByAllocation = e => {
+      setFilterByAllocation(e.target.value);
+    };
 
-function Filter(props) {
-    return(
-         <div className="">
-             <Form>
-                <SearchBar/>
-             </Form>
+    const jobs = tempDB.map( employee => {
+      return employee.job;
+    })
+
+    const jobOptions = jobs.filter((item, index) => {
+      return jobs.indexOf(item) >= index;
+    })
+
+    const cities = tempDB.map( employee => {
+      return employee.city;
+    })
+
+    const cityOptions = cities.filter((item, index) => {
+      return cities.indexOf(item) >= index;
+    })
+
+    const allocations = tempDB.map( employee => {
+      return employee.allocation;
+    })
+
+    const allocationOptions = allocations.filter((item, index) => {
+      return allocations.indexOf(item) >= index;
+    })
+  
+    return (
+      <div>
+        <div>
+
+        <label>Cargo : </label>
+          <select defaultValue={filterByJob} onChange={handleFilterByJob}>
+            <option value="none" selected hidden> 
+               Filtrar por cargo
+            </option> 
+            {jobOptions.map(job => {
+              return <option value={job}>{job}</option>;
+            })}
+          </select>
+
+          <label>Cidade : </label>
+          <select defaultValue={filterByCity} onChange={handleFilterByCity}>
+            <option value="none" selected hidden> 
+               Filtrar por cidade
+            </option> 
+            {cityOptions.map(city => {
+              return <option value={city}>{city}</option>;
+            })}
+          </select>
+
+          <label> Alocação : </label>
+          <select defaultValue={filterByAllocation} onChange={handleFilterByAllocation}>
+            <option value="none" selected hidden> 
+               Filtrar por alocação
+            </option> 
+            {allocationOptions.map(allocation => {
+              return <option value={allocation}>Allocation</option>;
+            })}
+          </select>
+
         </div>
+        <button onClick={clearFilter}>limpar filtros</button>
+      </div>
     );
-};
-
-export default Filter;
+  };
+  
+  export default Filter;
+  
