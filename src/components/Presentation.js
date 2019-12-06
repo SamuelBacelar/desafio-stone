@@ -1,6 +1,4 @@
 import React from 'react';
-import PresTitle from './PresTitle';
-import Button from './Button';
 
 function Presentation(props) {
     return(

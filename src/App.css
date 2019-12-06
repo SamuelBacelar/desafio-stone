@@ -1,20 +1,21 @@
 body {
-  background-color: #d3d3d3;
+  background-color: #e4e4e4;
+  color:#545454;
 }
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  width: 80px;
+  margin-left: 20px;
 }
 
 .App-header {
-  background-color: green;
+  background-color: #fff;
   height: 60px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -25,13 +26,38 @@ body {
 }
 
 .Presentation {
-  display: flex;
-  background-color: #fff;
-  padding: 30px 50px 30px 50px;
+  background-color: #ededed;
+  
 }
+
+.Pres-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.Pres-title p {
+  margin: 12px 0 12px 0;
+}
+
+.Pres-wrapper {
+  padding: 30px 50px 30px 50px;
+  margin:auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+}
+
 
 h1, h2 {
   margin: 0;
+}
+h2 {
+  font-size: 18px;
+}
+
+label {
+  font-weight: 600;
 }
 
 .Container {
@@ -45,17 +71,213 @@ h1, h2 {
   border-radius: 5px;
 }
 
+.Container-title {
+  padding: 15px;
+  margin-left: 15px;
+}
+ hr {
+  border-top: 1px solid #e4e4e4;
+  margin: 0;
+}
+
 .Button {
-  background-color: green;
+  background-color: #22b24c;
   padding: 15px 25px 15px 25px;
   max-width: 180px;
   height: 45px;
   border: none;
   border-radius: 5px;
   color: #fff;
+  font-weight: 600;
 }
 
 .Button:hover {
-  background-color: #09d3ac;
+  background-color: #5fc41c;
   cursor: pointer;
+}
+
+.Cancel-btn {
+  background-color: #ad1c1c;
+  padding: 15px 25px 15px 25px;
+  max-width: 180px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin-right: 15px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.Cancel-btn:hover {
+  background-color: #cd4646;
+}
+
+.Back-btn {
+  background-color: #ededed;
+  padding: 15px 25px 15px 25px;
+  max-width: 180px;
+  height: 45px;
+  border: solid 2px #22b24c;
+  border-radius: 5px;
+  color: #22b24c;
+  margin-right: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0;
+}
+
+.Back-btn:hover {
+  background-color: #22b24c;
+  color: #fff;
+}
+
+
+.search {
+  display: flex;
+  justify-content: left;
+  margin: 25px 25px 0 25px;
+}
+
+.search input {
+  padding: 15px;
+  background-color: #ededed;
+  border: none;
+  border-radius: 5px;
+}
+
+.Filter {
+ display: flex;
+ align-items: flex-end;
+ justify-content: right;
+}
+
+.Filter select {
+  padding: 15px;
+  background-color: #ededed;
+  border: none;
+  border-radius: 5px;
+}
+
+.clearFilterBtn {
+  padding: 15px;
+  border: none;
+  height: 47px;
+  border-radius: 5px;
+  background-color: #99e45c;
+  cursor: pointer;
+  width: 150px;
+  margin: 0 0 10px 10px;
+  font-weight: 600;
+}
+
+.Filter-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin:10px
+}
+
+.Filter-input label {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  padding: 30px;
+  table-layout: auto;
+}
+
+th, td {
+  padding: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.Table-header {
+  background-color: #22b24c;
+  color: #fff;
+}
+
+.Employee-table {
+  overflow-x:auto;
+}
+
+.Input {
+ display: flex;
+ flex-direction: column;
+ margin-bottom: 20px;
+}
+
+.Input label {
+  margin-bottom: 10px;
+}
+
+.Input input {
+  padding: 15px;
+  border-radius: 5px;
+  border:none;
+  background-color: #ededed;
+  max-width: 600px;
+}
+
+.Register-form {
+  padding: 30px;
+}
+
+.Edit-btns {
+  display: flex;
+}
+
+.Btn-action {
+  padding: 10px;
+  margin: 0 10px 0 10px;
+  width: 120px;
+  border-radius: 5px;
+  border: none;
+  background-color: #d3d3d3;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.Btn-action img{
+ margin-right:10px;
+}
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  color:#d3d3d3;
+}
+
+@media (max-width: 960px) {
+
+  .Pres-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .Btn-action {
+    margin:5px;
+  }
+  .search {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .clearFilterBtn {
+    margin:10px;
+    width: 300px;
+  }
+  select {
+    width: 300px;
+  }
+  input {
+    width: 270px;
+  }
+
 }

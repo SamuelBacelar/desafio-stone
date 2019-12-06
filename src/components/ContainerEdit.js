@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from './Input';
 import ContainerTitle from './ContainerTitle';
 import Button from './Button';
 import { Route, Redirect } from 'react-router';
+import BtnRoute from './buttons/BtnRoute';
+import { withRouter } from 'react-router-dom';
 const rp = require('request-promise');
 
 
-
-
-
-function ContainerRegister(props) {
-    const API_URL = "http://localhost:3002/employee"; 
-    let [state, setState] = useState(false);
-
+function ContainerEdit(props) {
+    const API_URL = "http://localhost:3002/employee/" + props.match.params.id; 
     const [employee, setEmployee] = useState({
         name: '',
         job: '',
@@ -24,6 +21,24 @@ function ContainerRegister(props) {
         cpf: '',
         allocation: ''
       });
+    let [state, setState] = useState(false);
+
+    useEffect(() => {
+        fetch(API_URL)
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("Something went wrong");
+            }
+          })
+          .then(jsonResponse => {
+            setEmployee(jsonResponse);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }, []);
 
       function handleChange(event) {
         const { name, value } = event.target;
@@ -37,7 +52,7 @@ function ContainerRegister(props) {
       }
 
 
-      async function submitEmployee(event) {
+      async function submitUpdatedEmployee(event) {
         setEmployee({
             name: '',
             job: '',
@@ -50,10 +65,8 @@ function ContainerRegister(props) {
             allocation: ''
         });
         
-
-        event.preventDefault();
         var options = {
-            method: 'POST',
+            method: 'PUT',
             uri: API_URL,
             form: {
                 name: employee.name,
@@ -74,6 +87,7 @@ function ContainerRegister(props) {
         rp(options)
             .then(function (body) {
                 // POST succeeded...
+                console.log(body)
                
             })
             .catch(function (err) {
@@ -91,8 +105,8 @@ function ContainerRegister(props) {
 
     return(
          <div className="Container">
-             <ContainerTitle title="Informações do funcionário"/>
-             <form className="Register-form" onSubmit={submitEmployee}>
+             <ContainerTitle title="Titulo aqui"/>
+             <form className="Register-form" onSubmit={submitUpdatedEmployee}>
                 <Input  
                     label="Nome Completo"
                     type="text" 
@@ -100,7 +114,7 @@ function ContainerRegister(props) {
                     placeholder="Ex: Bruna Marques Villa Nova" 
                     onChange={handleChange}
                     value={employee.name}
-                    className="Input"
+                    
                 />
                 <Input 
                     label="Cargo"
@@ -165,12 +179,16 @@ function ContainerRegister(props) {
                     placeholder="Ex: Interno" 
                     onChange={handleChange}
                     value={employee.allocation}
-                />
-                <Button  name="Cadastrar" type="submit"/>
+                />  
+                <div className="Edit-btns">
+                    <BtnRoute route="/" name="Cancelar" className="Cancel-btn" type="button"/> 
+                    <Button  name="Salvar" type="submit"/>
+                </div>
+                
              </form>
              
         </div>
     );
 };
 
-export default ContainerRegister;
+export default withRouter(ContainerEdit);

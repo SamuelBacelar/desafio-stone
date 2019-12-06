@@ -4,7 +4,7 @@ import Header from './Header'
 import Presentation from './Presentation';
 import Container from './Container';
 import Footer from './Footer';
-import Button from './Button';
+import BtnRoute from './buttons/BtnRoute';
 import TempDB from '../temporaryDB';
 import PresTitle from './PresTitle';
 
@@ -14,11 +14,13 @@ function App() {
     <div>
       <Header/>
       <Presentation>
-        <PresTitle
-          title="Quadro de Funcionários"
-          description="Aqui vai um texto sobre a seção"
-        />
-        <Button name="Novo funcionário"/>
+        <div className="Pres-wrapper">
+          <PresTitle
+              title="Quadro de Funcionários"
+              description="Todas as informações sobre os funcionários da Stone em um só lugar"
+            />
+            <BtnRoute route="/register" name="Novo funcionário" className="Button"/>
+          </div>
       </Presentation>
       <Container/>
       <Footer/>

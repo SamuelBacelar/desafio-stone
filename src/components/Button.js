@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 function Button(props) {
     return(
-           <Link to="/register"><button className="Button">{props.name}</button></Link>
+          <button className="Button" type={props.type}>{props.name}</button>
     );
 };
 

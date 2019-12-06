@@ -4,7 +4,7 @@ function Header() {
     return(
          <div className="App">
             <header className="App-header">
-                <img src='' className="App-logo" alt="logos" />
+                <img src='./Stone_pagamentos_logo.png' className="App-logo" alt="logos" />
             </header>
         </div>
     );

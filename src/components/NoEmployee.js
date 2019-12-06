@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from './Button';
 
-const hasEmployee = true;
 
 function NoEmployee(props) {
     return(

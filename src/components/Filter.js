@@ -1,5 +1,5 @@
 import React from 'react';
-import tempDB from '../temporaryDB';
+import ClearFilterBtn from './buttons/ClearFilterBtn';
 
 const Filter = ({
     filterByJob,
@@ -7,9 +7,11 @@ const Filter = ({
     filterByCity,
     setFilterByCity,
     filterByAllocation,
-    setFilterByAllocation
+    setFilterByAllocation,
+    employees
   }) => {
     const clearFilter = e => {
+      e.preventDefault();
       setFilterByCity("");
     };
     const handleFilterByJob = e => {
@@ -22,7 +24,7 @@ const Filter = ({
       setFilterByAllocation(e.target.value);
     };
 
-    const jobs = tempDB.map( employee => {
+    const jobs = employees.map( employee => {
       return employee.job;
     })
 
@@ -30,7 +32,7 @@ const Filter = ({
       return jobs.indexOf(item) >= index;
     })
 
-    const cities = tempDB.map( employee => {
+    const cities = employees.map( employee => {
       return employee.city;
     })
 
@@ -38,7 +40,7 @@ const Filter = ({
       return cities.indexOf(item) >= index;
     })
 
-    const allocations = tempDB.map( employee => {
+    const allocations = employees.map( employee => {
       return employee.allocation;
     })
 
@@ -47,42 +49,51 @@ const Filter = ({
     })
   
     return (
-      <div>
-        <div>
+      
+        <div className="Filter">
+          <div className="Filter-input">
+            <label>Cargo</label>
+            <select defaultValue={filterByJob} onChange={handleFilterByJob}>
+              <option value="none" selected hidden> 
+                Filtrar por cargo
+              </option> 
+              {jobOptions.map(job => {
+                return <option value={job}>{job}</option>;
+              })}
+            </select>
+          </div>
+          
+          <div className="Filter-input">
+            <label>Cidade</label>
+            <select defaultValue={filterByCity} onChange={handleFilterByCity}>
+              <option value="none" selected hidden> 
+                Filtrar por cidade
+              </option> 
+              {cityOptions.map(city => {
+                return <option value={city}>{city}</option>;
+              })}
+            </select>
+          </div>
+          
 
-        <label>Cargo : </label>
-          <select defaultValue={filterByJob} onChange={handleFilterByJob}>
-            <option value="none" selected hidden> 
-               Filtrar por cargo
-            </option> 
-            {jobOptions.map(job => {
-              return <option value={job}>{job}</option>;
-            })}
-          </select>
-
-          <label>Cidade : </label>
-          <select defaultValue={filterByCity} onChange={handleFilterByCity}>
-            <option value="none" selected hidden> 
-               Filtrar por cidade
-            </option> 
-            {cityOptions.map(city => {
-              return <option value={city}>{city}</option>;
-            })}
-          </select>
-
-          <label> Alocação : </label>
-          <select defaultValue={filterByAllocation} onChange={handleFilterByAllocation}>
-            <option value="none" selected hidden> 
-               Filtrar por alocação
-            </option> 
-            {allocationOptions.map(allocation => {
-              return <option value={allocation}>Allocation</option>;
-            })}
-          </select>
-
+          <div className="Filter-input">
+            <label>Alocação</label>
+            <select defaultValue={filterByAllocation} onChange={handleFilterByAllocation}>
+              <option value="none" selected hidden> 
+                Filtrar por alocação
+              </option> 
+              {allocationOptions.map(allocation => {
+                return <option value={allocation}>{allocation}</option>;
+              })}
+            </select>
+          </div>
+          <ClearFilterBtn 
+            onClick={clearFilter}
+            name="Limpar filtro"
+        />
         </div>
-        <button onClick={clearFilter}>limpar filtros</button>
-      </div>
+        
+      
     );
   };
   

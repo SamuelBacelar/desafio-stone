@@ -9,7 +9,8 @@ const Search = ({
   filterByCity,
   setFilterByCity,
   filterByAllocation,
-  setFilterByAllocation
+  setFilterByAllocation,
+  employees
 }) => {
   const handleSearchInputChanges = e => {
     setSearchValue(e.target.value);
@@ -17,12 +18,16 @@ const Search = ({
 
   return (
     <form className="search">
-      <input
-        placeholder="Filtrar por nome"
-        value={searchValue}
-        onChange={handleSearchInputChanges}
-        type="text"
-      />
+      <div className="Filter-input">
+        <label>Nome</label>
+        <input
+          placeholder="Filtrar por nome"
+          value={searchValue}
+          onChange={handleSearchInputChanges}
+          type="text"
+        />
+      </div>
+      
       <Filter
         filterByJob={filterByJob}
         setFilterByJob={setFilterByJob}
@@ -30,6 +35,7 @@ const Search = ({
         setFilterByCity={setFilterByCity}
         filterByAllocation={filterByAllocation}
         setFilterByAllocation={setFilterByAllocation}
+        employees={employees}
       />
     </form>
   );

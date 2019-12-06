@@ -2,10 +2,13 @@ import React from 'react';
 
 function ContainerTitle(props) {
     return(
-         <div className="container-title">
-            <h2>{props.title}</h2>
+        <div>
+            <div className="Container-title">
+                <h2>{props.title}</h2>
+            </div>
             <hr></hr>
         </div>
+         
     );
 };
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import tempDB from '../temporaryDB';
 import NoEmployee from './NoEmployee';
 import EmployeeTable from './EmployeeTable';
 

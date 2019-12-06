@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import Register from './components/Register'
+import Edit from './components/Edit';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
@@ -10,6 +11,7 @@ ReactDOM.render(<BrowserRouter>
                     <Switch>
                         <Route path="/" exact={true} component={App}/>
                         <Route path="/register" component={Register}/>
+                        <Route path="/edit/:id" component={Edit}/>
                     </Switch>
                  
                 </BrowserRouter>, 
