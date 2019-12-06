@@ -19,3 +19,4 @@ Para executar o projeto, basta rodar o comando `npm start` ou `yarn start`.
 
 Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
+O back end para ser usado em conjunto com este projeto encontra-se no seguinte repositório [https://github.com/SamuelBacelar/backend-stone](https://github.com/SamuelBacelar/backend-stone)
