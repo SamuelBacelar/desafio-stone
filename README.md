@@ -15,7 +15,7 @@ docker run -d -p 27017:27107 -v ~/data:/data/db mongo
 
 É necessário baixar todas as dependências do projeto antes de executá-lo. Instale o **yarn**, vá até a pasta raiz do projeto e execute `yarn install`.
 
-Para executar o projeto, basta rodar o comando `node src/index.js`.
+Para executar o projeto, basta rodar o comando `npm start` ou `yarn start`.
 
 Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
