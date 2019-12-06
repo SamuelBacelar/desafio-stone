@@ -3,7 +3,7 @@
 Projeto realizado para o desafio técnico de front end da Stone Pagamentos.
 
 ## Primeiros passos
-É necessário uma instância do **MongoDB** para roda esse projeto.
+É necessário uma instância do **MongoDB** para rodar esse projeto.
 
 É possível instalar o **MongoDB** diretamente na sua máquina ou executar um container **Docker**.
 
